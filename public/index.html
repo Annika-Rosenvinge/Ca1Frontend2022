@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend</title>
+</head>
+
+<body>
+<!--
+  This div is added to remove the flicker that comes from bootstrap being loaded
+  first in index.js
+  REMEMBER to set display to "block" in index.js, otherwise you will not see anything
+-->
+<div id="all-content" style="display: none;">
+    <ul id="menu" class="header">
+        <li><a href="" id="velkommen">Velkommen</a></li>
+        <li><a href="" id="allePersoner">Alle personer</a></li>
+        <li><a href="" id="findPersoner">Find personer</a></li>
+        <li><a href="" id="sletOpretPersoner">Slet, opret og rediger personer</a></li>
+    </ul>
+
+    <div class="content">
+
+        <!---- HTML for the About page -->
+
+        <div id="velkommen_html" style="display:none;">
+            <h3>Velkommen</h3>
+            <p>Klasse diagram</p>
+        </div>
+        <!-- End of HTML for ABOUT Page -->
+
+        <!-- Se alle personer -->
+        <div id="allePersoner_html" style="display:none;">
+            <h3>Alle personer</h3>
+            <p>Se alle personer i systemet</p>
+            <table class="table" id="allUsersTable">
+                <thead>
+                <tr>
+                    <th>Person id</th>
+                    <th>Fornavn</th>
+                    <th>Efternavn</th>
+                    <th>Email</th>
+                    <th>Telefon</th>
+                    <th>Gade</th>
+                    <th>By</th>
+                    <th>Postnummer</th>
+                    <th>Hobbier</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- Her skal koden for at se alle personer være -->
+                </tbody>
+            </table>
+
+        </div>
+        <!-- -->
+
+
+        <!-- Find personer -->
+        <div id="findPersoner_html" style="display:none;">
+            <h3>Find personer</h3>
+            <p>Find personer i systemet</p>
+            <div class="col-md-8 pre-scrollable">
+                <table class="table" id="getUserTable">
+                    <thead>
+                    <tr>
+                        <th>Person id</th>
+                        <th>Fornavn</th>
+                        <th>Efternavn</th>
+                        <th>Email</th>
+                        <th>Telefon</th>
+                        <th>Gade</th>
+                        <th>By</th>
+                        <th>Postnummer</th>
+                        <th>Hobbier</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- Her skal koden for at finde en bestem person være-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--  -->
+
+
+        <!-- Slet, opret og rediger personer-->
+        <div id="sletOpretPersoner_html" style="display:none;">
+            <h3>Slet, opret og rediger personer</h3>
+            <p>Slet og opret personer i systemet</p>
+
+
+            <div class="row" style="min-height: 5em;">
+                <div class="col-md-4" style="background-color: powderblue;">
+                    <h5>Add User</h5>
+                </div>
+
+                <div class="col-md-4" style="background-color: lightgrey;">
+                    <h5>Edit User</h5>
+                </div>
+
+                <div class="col-md-4" style="background-color: powderblue;">
+                    <h5>Delete User</h5>
+                </div>
+            </div>
+        </div>
+        <!-- End of HTML for exercise-3 -->
+    </div>
+
+
+    <!--End of all content -->
+</div>
+
+<!-- #################################################################-->
+<!-- IMPORTANT  DO NOT IMPORT ANY JavaScript in this file by YOURSELF -->
+<!-- #################################################################-->
+
+</body>
+
+</html>
