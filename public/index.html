@@ -49,7 +49,7 @@
                     <th>Hobbier</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id = allPersonsTable>
                 <!-- Her skal koden for at se alle personer være -->
                 </tbody>
             </table>
@@ -95,6 +95,73 @@
             <div class="row" style="min-height: 5em;">
                 <div class="col-md-4" style="background-color: powderblue;">
                     <h5>Add User</h5>
+                    <div class="col-md-4" style="background-color: rgb(127,219,255);">
+                        <h5 style = "margin-top:20px">Her kan du tilføje en person til systemet</h5>
+                        <p>Du skal indtaste informationerne herunder</p>
+                        <p>Bemærk hver email kan kun bruges en gang</p>
+
+                        <table class="table" id="addAPerson">
+                            <tr>
+                                <td>Fornavn</td>
+                                <td><label for="personFirstName"></label>
+                                    <input type="text" id="personFirstName"/></td>
+                            </tr>
+                            <tr>
+                                <td>Efternavn</td>
+                                <td><label for="personLastName"></label>
+                                    <input type="text" id="personLastName"/></td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td><label for="personEmail"></label>
+                                    <input type="text" id="personEmail"/></td>
+                            </tr>
+                            <tr>
+                                <td>Hobby navn</td>
+                                <td><label for="hobbyName"></label>
+                                    <input type="text" id="hobbyName"/></td>
+                            </tr>
+                            <tr>
+                                <td>Hobby kategori</td>
+                                <td><label for="hobbyCat"></label>
+                                    <input type="text" id="hobbyCat"/></td>
+                            </tr>
+                            <tr>
+                                <td>Hobby wikilink</td>
+                                <td><label for="hobbyWiki"></label>
+                                    <input type="text" id="hobbyWiki"/></td>
+                            </tr>
+                            <tr>
+                                <td>Hobby type</td>
+                                <td><label for="hobbyType"></label>
+                                    <input type="text" id="hobbyType"/></td>
+                            </tr>
+                            <tr>
+                                <td>Telefon</td>
+                                <td><label for="phoneNum"></label>
+                                    <input type="text" id="phoneNum"/></td>
+                            </tr>
+                            <tr>
+                                <td>Telefon beskrivelse</td>
+                                <td><label for="phoneDes"></label>
+                                    <input type="text" id="phoneDes"/></td>
+                            </tr>
+                            <tr>
+                                <td>Vejnavn</td>
+                                <td><label for="street"></label>
+                                    <input type="text" id="street"/></td>
+                            </tr>
+                            <tr>
+                                <td>By</td>
+                                <td><label for="city"></label>
+                                    <input type="text" id="city"/></td>
+                            </tr>
+                            <tr>
+                                <td>Postnummer</td>
+                                <td><label for="zipcode"></label>
+                                    <input type="text" id="zipcode"/></td>
+                            </tr>
+                        </table>
                 </div>
 
                 <div class="col-md-4" style="background-color: lightgrey;">

@@ -20,6 +20,11 @@ function getStatus(){
     return fetch(URL + "/status")
     }
 
+function createPerson(person){
+    const options = makeOptions('POST', person);
+    return fetch(URL + '/create', options).then(res => handleHttpErrors(res));
+}
+
 function getAllPersons(DOMElement){
     return fetch(URL + "/all")
         .then(function (response){
@@ -60,4 +65,48 @@ function getAllPersons(DOMElement){
 
             }
         })
+    }
+
+function getPersonById(id){
+    return fetch(URL + '/' + id).then(res => handleHttpErrors(res));
 }
+
+function deletePersonById(id){
+    const options = makeOptions('DELETE', {id});
+    return fetch(URL + '/delete/' + id, options).then(res => handleHttpErrors(res))
+}
+
+function editPerson(id, person){
+    const options = makeOptions('PUT', person);
+    return fetch(URL + '/update/' + id, options) .then(result => handleHttpErrors(result));
+}
+
+function makeOptions(){
+    const options = {
+        method: method,
+        headers: {
+            "Content-type" : "application/json",
+            "Accept" : "application/json"
+        }
+    }
+    if (body){
+        options.body = JSON.stringify(body);
+    }
+    return options;
+}
+
+function handleHttpErrors(res) {
+    if (!res.ok) {
+        return Promise.reject({ status: res.status, fullError: res.json() })
+    }
+    return res.json();
+}
+
+const personFacade ={
+    getStatus,
+    createPerson,
+    getAllPersons,
+    getPersonById,
+    deletePersonById
+}
+export default personFacade;

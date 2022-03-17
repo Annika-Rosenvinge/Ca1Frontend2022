@@ -3,21 +3,79 @@ import "bootstrap/dist/css/bootstrap.css"
 import * as bootstrap from 'bootstrap';
 import '@popperjs/core';
 import $ from 'jquery';
+import personFacade from "./personFacade";
 
 document.getElementById("all-content").style.display = "block"
 
 /* 
   Add your JavaScript for all exercises Below or in separate js-files, which you must the import above
 */
-
-/* JS For see persons */
-
-
-/* JS For find persons */
+//henter alle Personer
+const personsTable = document.querySelector('#allPersonsTable');
+personFacade.getAllPersons(personsTable);
 
 
 
-/* JS For delete and create persons */
+//create person
+function createPerson(){
+  const firstname = document.getElementById("personFirstName").value;
+  const lastname = document.getElementById("personLastName").value;
+  const email = document.getElementById("personEmail").value;
+  const hobbyName = document.getElementById("hobbyName").value;
+  const hobbyCat = document.getElementById("hobbyCat").value;
+  const hobbyType = document.getElementById("hobbyType").value;
+  const hobbyWiki = document.getElementById("hobbyWiki").value;
+  const phoneNum = document.getElementById("phoneNum").value;
+  const phoneDes = document.getElementById("phoneDes").value;
+  const street = document.getElementById("street").value;
+  const city = document.getElementById("city").value;
+  const zipcode = document.getElementById("zipcode").value;
+
+  const cityInfo = {
+    "zipcode" : zipcode,
+    "city" : city
+  }
+  const address = {
+    "street" : street,
+    "cityInfo" : cityInfo
+  }
+
+  const phone = {
+    "phonenumber" : phoneNum,
+    "description" : phoneDes
+  }
+  const phoneList = [
+      phone
+  ]
+
+  const hobby = {
+    "name" : hobbyName,
+    "category" : hobbyCat,
+    "type" : hobbyType,
+    "wikiLink" : hobbyWiki
+  }
+  const hobbyList = [
+      hobby
+  ]
+
+  const person = {
+    "firstname" : firstname,
+    "lastname" : lastname,
+    "email" : email,
+    "phoneList" : phoneList,
+    "hobbyList" : hobbyList,
+    "address" : address
+  }
+
+  console.log(JSON.stringify(person));
+  personFacade.createPerson(person)
+}
+
+//delete person
+function deletePerson(){
+
+}
+
 
 
 /* 
