@@ -14,9 +14,21 @@ document.getElementById("all-content").style.display = "block"
 const personsTable = document.querySelector('#allPersonsTable');
 personFacade.getAllPersons(personsTable);
 
-
+//get specifik person
+document.getElementById("findPersonButton").addEventListener("click", event => findPerson());
 
 //create person
+document.getElementById("addAPersonButton").addEventListener("click", event => createPerson());
+
+//delete person
+document.getElementById("deletePersonByIdButton").addEventListener("click", event => deletePerson());
+
+//edit person
+document.getElementById("editPersonButton").addEventListener("click", event => editPerson());
+
+
+
+//create person func
 function createPerson(){
   const firstname = document.getElementById("personFirstName").value;
   const lastname = document.getElementById("personLastName").value;
@@ -71,12 +83,73 @@ function createPerson(){
   personFacade.createPerson(person)
 }
 
-//delete person
+//delete person func
 function deletePerson(){
+const id = document.getElementById("deletePersonText").value;
 
+personFacade.deletePersonById(id).then(person =>{
+  document.getElementById("deletePersonByIdDiv").innerHTML = `
+    <h5 style = "margin-top:20px">>Den person der er blevet slettet</h5>
+      <table>
+        <tr><td>Id:</td><td>${person.id}</td></tr>
+        <tr><td>Fornavn:</td><td>${person.firstname}</td></tr>
+        <tr><td>Efternavn:</td><td>${person.lastname}</td></tr>
+        <tr><td>Email:</td><td>${person.email}</td></tr>
+      </table>
+    `
+  console.log(person)
+  })
+    .catch(error => errorHandling(error))
+}
+
+//edit person func
+function editPerson(){
+  const id = document.getElementById("editPersonId").value;
+  const fn = document.getElementById("editPersonFN").value;
+  const ln = document.getElementById("editPersonLN").value;
+  const person = {
+    "id" : id,
+    "firstname" : fn,
+    "lastname" : ln
+  }
+  personFacade.editPerson(id, person);
+}
+
+function findPerson(){
+  const id = document.getElementById("findPersonText").value;
+  personFacade.getPersonById(id).then(person =>{
+    document.getElementById("findPersonDiv").innerHTML =
+      `<h5 style = "margin-top:20px">Her er personen</h5>
+       <table>
+        <tr><td>Id:</td><td>${person.id}</td></tr>
+        <tr><td>Fornavn:</td><td>${person.firstname}</td></tr>
+        <tr><td>Efternavn:</td><td>${person.lastname}</td></tr>
+        <tr><td>Email:</td><td>${person.email}</td></tr>
+        <tr><td>Telefon nummer:</td><td>${person.phoneList[0].phonenumber}</td></tr>
+        <tr><td>Telefon beskrivelse:</td><td>${person.phoneList[0].description}</td></tr>
+        <tr><td>Adresse</td>:</td><td>${person.address.street}</td></tr>
+        <tr><td>By:</td><td>${person.address.cityInfo.city}</td></tr>
+        <tr><td>Postnummer:</td><td>${person.address.cityInfo.zipcode}</td></tr>
+        <tr><td>Hobby navn:</td><td>${person.hobbyList[0].name}</td></tr>
+        <tr><td>Hobby link:</td><td>${person.hobbyList[0].wikiLink}</td></tr>
+        <tr><td>Hobby kategori:</td><td>${person.hobbyList[0].category}</td></tr>
+        <tr><td>Hobby type:</td><td>${person.hobbyList[0].type}</td></tr>
+       </table>`
+
+  })
 }
 
 
+function errorHandling(err){
+  if (err.status){
+    err.fullError.then(e => {
+      $("#errorMessage").text(e.msg);
+    })
+  }
+  else{
+    $("#errorMessage").text("Network error. The user API is not responding.");
+  }
+}
 
 /* 
 Do NOT focus on the code below, UNLESS you want to use this code for something different than

@@ -62,25 +62,12 @@
         <div id="findPersoner_html" style="display:none;">
             <h3>Find personer</h3>
             <p>Find personer i systemet</p>
-            <div class="col-md-8 pre-scrollable">
-                <table class="table" id="getUserTable">
-                    <thead>
-                    <tr>
-                        <th>Person id</th>
-                        <th>Fornavn</th>
-                        <th>Efternavn</th>
-                        <th>Email</th>
-                        <th>Telefon</th>
-                        <th>Gade</th>
-                        <th>By</th>
-                        <th>Postnummer</th>
-                        <th>Hobbier</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <!-- Her skal koden for at finde en bestem person være-->
-                    </tbody>
-                </table>
+            <div class="col-md pre-scrollable">
+                <label for="findPersonText"></label>
+                <input type="text" id="findPersonText">
+                <input type="button" id=findPersonButton value="find">
+                <br/>
+                <div id="findPersonDiv"></div>
             </div>
         </div>
         <!--  -->
@@ -95,7 +82,7 @@
             <div class="row" style="min-height: 5em;">
                 <div class="col-md-4" style="background-color: powderblue;">
                     <h5>Add User</h5>
-                    <div class="col-md-4" style="background-color: rgb(127,219,255);">
+                    <div class="col-md" style="background-color: rgb(127,219,255);">
                         <h5 style = "margin-top:20px">Her kan du tilføje en person til systemet</h5>
                         <p>Du skal indtaste informationerne herunder</p>
                         <p>Bemærk hver email kan kun bruges en gang</p>
@@ -162,14 +149,42 @@
                                     <input type="text" id="zipcode"/></td>
                             </tr>
                         </table>
+                        <input type = "button" id = "addAPersonButton" value = "Add">
                 </div>
 
-                <div class="col-md-4" style="background-color: lightgrey;">
+                <div class="col-md" style="background-color: #3fa648;">
                     <h5>Edit User</h5>
+                    <h6> Du skal indtaste id'et og de nye informationer på den der skal ændres</h6>
+                    <p>Husk at vælge det rigtige id</p>
+                    <table class ="table" id = "editPersonTable">
+                        <tr>
+                            <td>id</td>
+                            <td><label for = "editPersonId"></label>
+                                <input type = "text" id = "editPersonId">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Fornavn</td>
+                            <td><label for="editPersonFN"></label>
+                                <input type="text" id="editPersonFN"/></td>
+                        </tr>
+                        <tr>
+                            <td>Efternavn</td>
+                            <td><label for="editPersonLN"></label>
+                                <input type="text" id="editPersonLN"/></td>
+                        </tr>
+                    </table>
+                    <input type = "button" id = "editPersonButton" value = "send ny informationer">
                 </div>
 
-                <div class="col-md-4" style="background-color: powderblue;">
+                <div class="col-md" style="background-color: #d50e33;">
                     <h5>Delete User</h5>
+                    <p>Bemærk når en person først er slettet så kan det ikke gøres om igen</p>
+                    <label for="deletePersonText"></label>
+                    <input type = "text" id = "deletePersonText">
+                    <input type = "button" id = "deletePersonByIdButton" value = "delete">
+                    <br/>
+                    <div id = deletePersonByIdDiv></div>
                 </div>
             </div>
         </div>

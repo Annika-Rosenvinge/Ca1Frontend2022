@@ -107,6 +107,8 @@ const personFacade ={
     createPerson,
     getAllPersons,
     getPersonById,
-    deletePersonById
+    deletePersonById,
+    editPerson
 }
+
 export default personFacade;
